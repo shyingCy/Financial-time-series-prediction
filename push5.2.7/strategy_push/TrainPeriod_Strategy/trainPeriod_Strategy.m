@@ -109,7 +109,7 @@ for taskNum=1:length(task)
             end
             %======提取出训练数据下标和测试数据下标=====%
             %=========================================%
-            if sum(Time) ~= 0 %如果数据周期为日数据之下
+            if sum(Time) ~= 0 % 如果数据周期为日数据之下
                 temp = find(hour(Time)==9); %基本思想是取9点之前数据为前一天数据
                 a=diff(temp);
                 b=find(a~=1)+1;
@@ -117,9 +117,8 @@ for taskNum=1:length(task)
                 testDayBeg(1) = temp(1); %  fill the first index
                 testDayBeg(2:end) = temp(b(1:end));
                 testDayBegLength = length(testDayBeg);
-            else %如果数据周期为日数据之上，即日数据，周数据等等
-                temp = diff(day(Date));
-                testDayBeg = find(temp~=0)+1; %这里+1是因为diff函数会前移一位，比如1,1,2.作差会得到0,1，在这里我们是要2的下标
+            else % 如果数据周期为日数据之上，即日数据，周数据等等.周数据则取的还是每周的数据
+                testDayBeg = 1:1:length(Date);
                 testDayBegLength = length(testDayBeg);
             end
             
