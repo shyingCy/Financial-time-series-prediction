@@ -1,0 +1,54 @@
+Strategy:Para
+ParaNumber:2
+chris_Length=10:1:20;
+pink_Length=3:1:15;
+All products are as follow:
+pro1:if000
+pro2:i9000
+pro3:j9000
+pro4:l9000
+pro5:M9000
+pro6:rb000
+pro7:sr000
+pro8:ta000
+pro9:y9000
+pro10:p9000
+pro11:ru000
+pro12:ag000
+pro13:au000
+pro14:cu000
+pro15:cf000
+pro16:jd000
+pro17:al000
+pro18:rm000
+Please input the number of test pro,format as(the first pro1,if more than 1 to test,for example:2,5).testpro=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
+All frequency as follow:
+freq1:m1
+freq2:m5
+freq3:m15
+freq4:m30
+freq5:h1
+freq6:h4
+freq7:d1
+freq8:w1
+input the test frequency(format as product):testfreq=7
+Please input the test begin date,format as 2012-01-01,test begin date=2010-04-16
+Please input the test end date,format as 2012-01-01,test end date=2015-02-01
+slip point(1:open slip 2:close slip 3.no 4.two-sides slip):4
+continuous open times(please input a number,0 stop continuous open):0
+Please input train days,if only one type then input a number,if more,then input like a matlab array(22:44:66).Please input:22:44:110
+Please input test days,if only one type then input a number,if more,then input like a matlab array(22:44:66).Please input:22
+Please choose if open the random location(0 is shut down,1 is open):0
+Please input the lower limit of the random range:1
+Please input the higher limit of the random range:22
+Please choose the way to get test data(0 is by mat file,1 is by mysql):0
+Please choose whether to protect the program from running the duplicate task(1 is protect,0 is versus):1
+All optimical way as follow:
+1.totalProfit
+2.Sharp
+3.WinRet
+4.AverageProfit/AverageLoss
+5.Using first X percentage of profit indicators to get a intersection A,then use the same method on risk indicators to get a intersection B,finally get the best one by sharp
+6.Using first X percentage of all indicators to get a intersection A,get the best one by the best sharp
+Please choose a way to optimize:
+1

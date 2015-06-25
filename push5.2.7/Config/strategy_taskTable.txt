@@ -1,0 +1,27 @@
+Strategy Number:24
+Strategy:
+1.priceAction
+2.WFFT
+3.HTM
+4.Z006noStop
+5.Dolly
+6.CatFX
+7.Phase
+8.LLT
+9.ASCTrendnoStop
+10.isakas
+11.Z006
+12.ASCTrend
+13.Z017moead
+14.Wave
+15.Para
+16.ASCTrendmoead
+17.WFFTmoead
+18.MES
+19.MESM5
+20.MESM15
+21.MESpro
+22.MESproM5
+23.MESproM15
+24.EMD
+Please choose the strategy to run:1

@@ -1,0 +1,4 @@
+ODBCName:Test
+user :root
+password:11234567
+Database:cydata
