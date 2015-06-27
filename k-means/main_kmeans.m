@@ -15,8 +15,8 @@ totalTime = bardata(:,2);
 
 %% preprocess data
 
-trainBegD = '2014-04-06';
-trainEndD = '2014-07-06';
+trainBegD = '2014-01-06';
+trainEndD = '2014-04-06';
 trainData = extractDataByDate(bardata,totalDate,trainBegD,trainEndD);
 time = trainData(:,2);
 trainClose = trainData(:,6);
@@ -68,8 +68,8 @@ save([trainBegD,'To',trainEndD,'_',num2str(K1),'cluster']);
 
 %% test the data
 
-testBegD = '2014-08-07';
-testEndD = '2015-01-30';
+testBegD = '2014-04-07';
+testEndD = '2014-05-07';
 testData = extractDataByDate(bardata,totalDate,testBegD,testEndD);
 time = testData(:,2);
 testClose = testData(:,6);

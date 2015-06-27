@@ -26,7 +26,6 @@ Low = data(:,5);
 Close = data(:,6);
 barLength = size(Close,1); %K线总量
 
-
 %调用买卖函数需要的变量
 entryRecord = []; %开仓记录
 exitRecord = []; %平仓记录

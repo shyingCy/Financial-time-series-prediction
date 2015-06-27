@@ -33,7 +33,7 @@ freq5:h1
 freq6:h4
 freq7:d1
 freq8:w1
-input the test frequency(format as product):testfreq=7
+input the test frequency(format as product):testfreq=1
 Please input the test begin date,format as 2012-01-01,test begin date=2010-04-16
 Please input the test end date,format as 2012-01-01,test end date=2015-02-01
 slip point(1:open slip 2:close slip 3.no 4.two-sides slip):4

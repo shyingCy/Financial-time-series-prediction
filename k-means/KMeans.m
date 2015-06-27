@@ -18,7 +18,10 @@ function [u re]=KMeans(data,N)
     k=0;
     while 1
         k = k+1;
-        disp(k);
+%         disp(k);
+        if k>100
+            break;
+        end
         pre_u=u;            %上一次求得的中心位置
         for i=1:N
             tmp{i}=[];      % 公式一中的x(i)-uj,为公式一实现做准备
@@ -48,7 +51,7 @@ function [u re]=KMeans(data,N)
         end
         
         dis = norm(pre_u-u);
-        if dis < 0.01  %不断迭代直到位置不再变化
+        if dis < 0.1  %不断迭代直到位置不再变化
             break;
         end
     end

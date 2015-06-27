@@ -31,8 +31,8 @@ end
 %   只要得到这个小时，处理办法就跟取每天开盘9点的数据一样了，oh yeah
 if sum(time) ~= 0 % 如果数据周期为日数据之下
     %----get the day begin index----%
-    dayOpenHour = 9;
-    temp = find(hour(time)==9); % 9 is the hour of open time
+    dayOpenHour = 9; % 9 is the hour of open time
+    temp = find(hour(time)==dayOpenHour);
     a = diff(temp);
     b = find(a~=1)+1;
     dayOpenIndex = zeros(length(b)+1,1);
@@ -60,6 +60,7 @@ end
 
 beforeCloseIndex = dayCloseIndex - preMinute;
 afterOpenIndex = dayOpenIndex + rearMinute;
+
 %   because the first day and the last day have no preMinute or rearMinute
 %   so it must be attentioned
 beforeCloseIndex = beforeCloseIndex(1:end-1);
@@ -69,6 +70,9 @@ afterOpenIndex = afterOpenIndex(2:end);
 dataColmun = length(beforeCloseIndex(1):afterOpenIndex(1));
 userSeries = zeros(m,dataColmun);
 for i=1:m
+    if i > length(beforeCloseIndex)
+        disp('1');
+    end
     temp = data(beforeCloseIndex(i):afterOpenIndex(i)); %  use a temporal variable to handle data loss
     lossPosition = dataColmun - length(temp) + 1; %  put the loss data in the first position to try to not to influence the next phase
     userSeries(i,lossPosition:end) = temp;

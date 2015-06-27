@@ -275,18 +275,20 @@
 %   2015-06-24 01:13
 
 clear all
-trainBegD = '2014-09-30';
-trainEndD = '2014-12-31';
+trainBegD = '2014-01-06';
+trainEndD = '2014-04-06';
 K = 5;
 fileName = [trainBegD,'To',trainEndD,'_',num2str(K),'cluster'];
 load(fileName);
 
-testBegD = '2015-01-01';
-testEndD = '2015-01-30';
+testBegD = '2014-04-07';
+testEndD = '2014-05-07';
 testData = extractDataByDate(bardata,totalDate,testBegD,testEndD);
 time = testData(:,2);
 testClose = testData(:,6);
-[ userSeries,itemSeries ] = getAMPMData(testClose,time);
+%[ userSeries,itemSeries ] = getAMPMData(testClose,time);
+preMinute = 15; rearMinute = 15;
+[ userSeries,itemSeries ] = getbeforeAfterOpenSeries(testClose,time,preMinute,rearMinute);
 
 % 归一化数据
 normUserSeries = mapminmax(userSeries);
@@ -303,7 +305,7 @@ for testIndex=1:m_user
     distance = inf;
     for userIndex=1:m
         if sum(isnan(rating(userIndex,:))) ~= n
-            disTmp = norm(normUserSeries(testIndex,:)-u_am(userIndex,:)); % the distance between the new serie and the cluster center
+            disTmp = norm(normUserSeries(testIndex,:)-u_user(userIndex,:)); % the distance between the new serie and the cluster center
             if distance > disTmp
                 distance = disTmp;
                 userCluster(testIndex) = userIndex; % record the belonging cluster of the new serie
@@ -319,7 +321,7 @@ end
 
 % use the pm cluster center to determine the predicting serie's direction
 %%%%--------------------here can be improved-------------------------%%%%
-recommendDir = u_pm(recommend_i,end) - u_pm(recommend_i,1);
+recommendDir = u_item(recommend_i,end) - u_item(recommend_i,1);
 recommendDir(recommendDir > 0) = UP;
 recommendDir(recommendDir < 0) = DOWN;
 
@@ -379,4 +381,3 @@ cumsumProfit = cumsum(profit);
 figure;
 plot(cumsumProfit * 300);
 title(['止损累积收益图，预测准确率为',num2str(hit)]);
-
